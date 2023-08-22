@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.safari.SafariDriver;
+
 import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +24,7 @@ public class BaseDriver {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
+        //driver =new SafariDriver();
         driver.manage().window().maximize();
 
         Duration dr = Duration.ofSeconds(30);
@@ -29,15 +32,16 @@ public class BaseDriver {
         driver.manage().timeouts().implicitlyWait(dr);
 
     }
-    public static void BekleKapat(){
+
+    public static void BekleKapat() {
         MyFunctions.Bekle(3);
         driver.quit();
     }
 
-    public static void KalanOncekileriKapat(){
+    public static void KalanOncekileriKapat() {
         try {
             Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
-        }catch (Exception ignore){
+        } catch (Exception ignore) {
 
         }
     }
