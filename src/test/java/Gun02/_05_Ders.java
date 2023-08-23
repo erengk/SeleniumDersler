@@ -1,12 +1,14 @@
 package Gun02;
 
 import Utility.BaseDriver;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class _05_Ders extends BaseDriver {
-    public static void main(String[] args) {
+    @Test
+    public  void Test(){
         //https://demo.seleniumeasy.com/basic-first-form-demo.html
         // 1-Açılan sayfadaki kutucuğa mesajınızı yazını.
         // 2-Butona tıklatınız
@@ -24,7 +26,13 @@ public class _05_Ders extends BaseDriver {
 
         WebElement assertMsg = driver.findElement(By.cssSelector("span[id='display']"));
 
-        //Assert.assertTrue(assertMsg.getText().equals("msg"));
+        if (assertMsg.getText().contains("Hata Versin")){
+            System.out.println("Test Passed");
+        }else
+            System.out.println("Test Fail");
+
+        //Assert.assertTrue(assertMsg.getText().equals(msg));
+        Assert.assertFalse(assertMsg.getText().contains("Hata Versin"),"Test Kaldı");
 
         BekleKapat();
     }
