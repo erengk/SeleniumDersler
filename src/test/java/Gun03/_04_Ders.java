@@ -25,6 +25,7 @@ public class _04_Ders extends BaseDriver {
         action.perform();
 
 
+
         MyFunctions.Bekle(2);
         Assert.assertTrue("url hatalı", driver.getCurrentUrl().contains("uye"));
 
